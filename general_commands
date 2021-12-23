@@ -1,0 +1,14 @@
+#run a command inside the namespace of a docker container
+#get Pid of container
+
+$ docker container inspect -f '{{.State.Pid}}' CONTAINER_ID
+#this will return the PID
+
+#using the container PID; run command nsenter to enter the namespace of that process
+
+$ nsenter -t $PID -n $COMMAND/ARGs
+
+#example using PID=1234 and COMMAND=ss with ARG=-antup
+
+$ nsenter -t 1234 -n ss -antup
+
