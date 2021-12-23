@@ -1,4 +1,6 @@
 FROM node:16
+LABEL maintainer="zereneh@ryerson.ca"
+
 # App directory
 WORKDIR /usr/src/app
 
